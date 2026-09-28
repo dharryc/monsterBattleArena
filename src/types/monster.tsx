@@ -5,11 +5,17 @@ export interface Monster {
     attackDamage: number,
 }
 
+export const monsterTypes = [
+    'Fish',
+    'Turtle',
+    'Thing',
+    'Fire-Thing',
+    'Uhhhh... oh dear... I don\'t think I can say that one... it\'s not offensive... I just can\'t... pronounce it?',
+    'No, it isn\'t a bug, you\'re not supposed to be able to beat this guy',
+] as const
 
-export type MonsterType = 
-    | 'Fish' 
-    | 'Turtle' 
-    | 'Thing' 
-    | 'Fire-Thing'
-    | 'Uhhhh... oh dear... I don\'t think I can say that one... it\'s not offensive... I just can\'t... pronounce it?'
-    | 'No, it isn\'t a bug, you\'re not supposed to be able to beat this guy';
+export type MonsterType = typeof monsterTypes[number]
+
+export const unbeatableType: MonsterType = 'No, it isn\'t a bug, you\'re not supposed to be able to beat this guy'
+
+export const unpronounceableType: MonsterType = 'Uhhhh... oh dear... I don\'t think I can say that one... it\'s not offensive... I just can\'t... pronounce it?'

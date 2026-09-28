@@ -1,16 +1,19 @@
 import type { Monster } from '../types/monster.js'
 
-export const MonsterComponent = ({
-    
-}: MonsterProps) => {
-    return(
-        <div>
-
-        </div>
-    )
+type MonsterComponentProps = {
+    monster: Monster,
+    currentHealth?: number,
 }
 
-interface MonsterProps{
-    monster: Monster,
-    
+export const MonsterComponent = ({
+monster, currentHealth = monster.startingHealth,
+}: MonsterComponentProps) => {
+    return (
+        <div className='monsterCard'>
+            <h2>{monster.name}</h2>
+            <p>Type: {monster.type}</p>
+            <p>Health: {currentHealth}</p>
+            <p>Attack Damage: {monster.attackDamage}</p>
+        </div>
+    )
 }
